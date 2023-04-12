@@ -1,0 +1,13 @@
+body{
+    text-align: center;
+}
+
+section{
+    display: inline-block;
+    margin: 20px;
+}
+
+canvas {
+    background: url(../images/grid.gif);
+    box-shadow: 0 0 5px #ccc;
+}
