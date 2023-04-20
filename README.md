@@ -22,3 +22,12 @@
 *이전 파일에 합체하여 이어서 만들었습니다!
 *배경에 패턴을 넣어보았습니다. 
 *선 스트로크에 linecap으로 선 끝에 속성을 추가하고 linejoin으로 모서리의 속성을 넣어보았습니다.
+<br>
+<strong>2023.04.19</strong><br>
+*shadowblur와 shadowColor로 그림자를 만들어보았습니다.
+*좌표를 이용하여 arc, arcTo로 곡선 그리고 원을 그리는 방법을 배웠습니다.<br>
+*line의 dash 속성을 넣어보고 패턴을 적용시켜 보았습니다.<br>
+<br>
+<strong>2023.04.20</strong><br>
+*for문을 통해 중복적으로 적용이 되는 Alpha Circle을 배웠습니다.<br>
+*for문을 통하여 선의 굵기와 dash정도가 증가하는 예제를 만들었습니다.<br>
