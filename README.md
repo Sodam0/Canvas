@@ -21,7 +21,7 @@
 <strong>2023.04.17</strong><br>
 *이전 파일에 합체하여 이어서 만들었습니다!
 *배경에 패턴을 넣어보았습니다. 
-*선 스트로크에 linecap으로 선 끝에 속성을 추가하고 linejoin으로 모서리의 속성을 넣어보았습니다.
+*선 스트로크에 linecap으로 선 끝에 속성을 추가하고 linejoin으로 모서리의 속성을 넣어보았습니다.<br>
 <br>
 <strong>2023.04.19</strong><br>
 *shadowblur와 shadowColor로 그림자를 만들어보았습니다.
