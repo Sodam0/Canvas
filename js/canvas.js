@@ -618,7 +618,7 @@ gra7.addColorStop(1,graColor[3]);
 ctx40.fillStyle = graBg;
 ctx40.fillRect(0,0,w40,h40);
 
-ctx40.font = 'bold 6rem Arial, sans-serif';
+ctx40.font = 'bold 7em Poppins, sans-serif';
 ctx40.textAlign = 'center'; ctx40.textBaseline = 'middle';
 ctx40.lineWidth = 3;
 ctx40.strokeStyle = gra7;
@@ -736,7 +736,7 @@ for(let i=0; i<imgData3.data.length; i+=50){
 }
 ctx49.putImageData(imgData3,100,50);
 
-// c50
+// c50 
 const canvas50 = document.getElementById('canvas50');
 const ctx50 = canvas50.getContext('2d');
 ctx50.fillStyle = 'cornflowerblue';
@@ -757,9 +757,30 @@ for(let i=0; i<imgData5.data.length; i+=4){
     imgData5.data[0+i] = 255 - imgData5.data[0+i];
     imgData5.data[1+i] = 255 - imgData5.data[1+i];
     imgData5.data[2+i] = 255 - imgData5.data[2+i];
-    imgData5.data[3+i] = 255 - imgData5.data[3+i];
 }
 ctx51.putImageData(imgData5,0,0);
+
+// c52
+const canvas52 = document.getElementById('canvas52');
+const ctx52 = canvas52.getContext('2d');
+const myImg14 = document.getElementById('img3');
+ctx52.drawImage(myImg14,0,0);
+
+const imgData7 = ctx52.getImageData(0,0,canvas52.width,canvas52.height);
+
+for(let i=0; i<imgData7.data.length; i+=4){
+    imgData7.data[0+i] = 255 - imgData7.data[0+i];
+    imgData7.data[1+i] = 255 - imgData7.data[1+i];
+    imgData7.data[2+i] = 255 - imgData7.data[2+i];
+}
+ctx52.putImageData(imgData7,0,0);
+
+ctx52.font = 'bold 7em Poppins, sans-serif';
+ctx52.textAlign = 'center'; ctx52.textBaseline = 'middle';
+ctx52.fillStyle = '#fff';
+ctx52.fillText('Dam.',300,200);
+
+
 
 // c53
 const canvas53 = document.getElementById('canvas53');
@@ -769,5 +790,131 @@ ctx53.fillStyle = 'coral';
 ctx53.fillRect(0,0,200,200);
 
 ctx53.fillStyle = 'cornflowerblue';
-ctx53.fillRect(20,20,100,100);
+ctx53.fillRect(20,20,160,160);
 
+const imgData6 = ctx53.getImageData(0,0,200,200);
+ctx53.putImageData(imgData6,250,150,50,50,100,100);
+
+// c54
+const canvas54 = document.getElementById('canvas54');
+const ctx54 = canvas54.getContext('2d');
+let x=0; let y=0;
+ctx54.fillStyle = gra5;
+
+moveRect();
+function moveRect(){
+    ctx54.clearRect(0,0,canvas54.width,canvas54.height);
+    ctx54.fillRect(x+80,y,50,50);
+    x+=3; y+=3;
+    if(y >= canvas54.height){
+        x=0; y=0;
+    }
+    requestAnimationFrame(moveRect);
+}
+
+// c55
+const canvas55 = document.getElementById('canvas55');
+const ctx55 = canvas55.getContext('2d');
+let x55=0; y55=0;
+
+blur();
+function blur(){
+    ctx55.fillStyle = 'rgba(0,0,0,.1)'
+    ctx55.fillRect(0,0,canvas55.width,canvas55.height);
+    ctx55.fillStyle = gra5;
+    ctx55.beginPath();
+    ctx55.arc(x55+100,y55,50,0,Math.PI*2);
+    ctx55.fill();
+    x55+=3; y55+=3;
+    if(y55 >= canvas55.height+100){
+        x55=0; y55=0;
+    }
+    requestAnimationFrame(blur);
+}
+
+// c56
+const canvas56 = document.getElementById('canvas56');
+const ctx56 = canvas56.getContext('2d');
+let num56 = 1;
+
+rotateRect();
+function rotateRect(){
+    ctx56.save();
+    ctx56.fillStyle = 'rgba(0,0,0,.1)';
+    ctx56.fillRect(0,0,canvas56.width,canvas56.height);
+    ctx56.fillStyle = gra6;
+    ctx56.translate(canvas56.width/2,canvas56.height/2);
+    ctx56.rotate((Math.PI/180)*num56);
+    ctx56.translate(-canvas56.width/2,-canvas56.height/2);
+    ctx56.fillRect(250,100,100,200);
+    ctx56.restore();   
+    num56 += 2;
+    if(num56>=360){
+        num56 = 1;
+    }
+    requestAnimationFrame(rotateRect);
+}
+
+// c57
+const canvas57 = document.getElementById('canvas57');
+const ctx57 = canvas57.getContext('2d');
+let num57 = 1;
+
+rotateArc();
+function rotateArc(){
+    ctx57.save();
+    ctx57.fillStyle = 'rgba(0,0,0,.2)';
+    ctx57.fillRect(0,0,canvas57.width,canvas57.height);
+    ctx57.fillStyle = gra7;
+    ctx57.fill();
+    
+    ctx57.beginPath();
+    ctx57.arc(canvas57.width/2,canvas57.height/2,80,0,Math.PI*2);
+    ctx57.translate(canvas57.width/2-num57,canvas57.height/2-num57);
+    ctx57.fill();
+    ctx57.restore();
+
+    ctx57.save();
+    ctx57.beginPath();
+    ctx57.translate(canvas57.width/2,canvas57.height/2);
+    ctx57.fill();
+    ctx57.rotate((Math.PI/180)*num57);
+    ctx57.translate(-200,-120);
+    ctx57.fillStyle = '#ddd'
+    ctx57.beginPath();
+    ctx57.arc(canvas57.width / 2, canvas57.height / 2, 30, 0, Math.PI * 2);
+    ctx57.fill();
+    
+    ctx57.restore();
+    num57 += 2;
+    if(num57>=360){
+        num57 = 1;
+    }
+    requestAnimationFrame(rotateArc);
+}
+
+
+
+// c58
+$('#canvas58').drawArc({
+    fillStyle: 'coral',
+    x: 150, y:150,
+    radius: 80
+}).drawArc({
+    fillStyle: 'cornflowerblue',
+    x: 280, y: 200,
+    radius: 150
+}).drawArc({
+    fillStyle: 'bisque',
+    x: 400, y: 100,
+    radius: 50
+}).drawPolygon({
+    fillStyle: '#36c',
+    strokeStyle: 'rgb(0,0,0,.5)',
+    strokeWidth: 20,
+    x: 450, y: 250,
+    radius: 50,
+    sides: 3,
+    concavity: -0.5,
+    rotate: 170
+})
