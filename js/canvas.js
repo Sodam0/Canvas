@@ -880,7 +880,7 @@ function rotateArc(){
     ctx57.fill();
     ctx57.rotate((Math.PI/180)*num57);
     ctx57.translate(-200,-120);
-    ctx57.fillStyle = '#ddd'
+    ctx57.fillStyle = '#fff'
     ctx57.beginPath();
     ctx57.arc(canvas57.width / 2, canvas57.height / 2, 30, 0, Math.PI * 2);
     ctx57.fill();
@@ -892,6 +892,12 @@ function rotateArc(){
     }
     requestAnimationFrame(rotateArc);
 }
+
+// c59
+const canvas59 = document.getElementById('canvas59');
+const ctx59 = canvas59.getContext('webgl');
+ctx59.clearColor(0.1,0,1,0.2);
+ctx59.clear(ctx59.COLOR_BUFFER_BIT);
 
 
 
@@ -918,3 +924,38 @@ $('#canvas58').drawArc({
     concavity: -0.5,
     rotate: 170
 })
+
+// three
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, canvas59.width/ canvas59.height, 0.1, 1000 );
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( canvas59.width, canvas59.height );
+document.getElementById('three').appendChild(renderer.domElement);
+document.getElementById('three').querySelector('canvas').style.display = 'inline-block';
+
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 'coral' } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+
+camera.position.z = 10;
+
+function animate() {
+	requestAnimationFrame( animate );
+
+	cube.rotation.x += 0.03;
+	cube.rotation.y += 0.01;
+
+	renderer.render( scene, camera );
+}
+
+animate();
+
+// ripples
+$('#rip').ripples({
+	resolution: 512,
+	dropRadius: 10,
+	perturbance: 0.04,
+});
